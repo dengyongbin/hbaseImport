@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p %d %t %l : %m%n"  />
+		</layout>
+	</appender>
+
+	<appender name="RollingFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Append" value="false" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<param name="File" value="hbaseImport.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%p %d %t %l : %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="hbase.insert.com"> 
+	     <level value="info" />
+    </logger>
+	
+	<root>
+		<priority value="error" />
+		<appender-ref ref="ConsoleAppender" />
+		<appender-ref ref="RollingFileAppender" />
+	</root>
+</log4j:configuration>
