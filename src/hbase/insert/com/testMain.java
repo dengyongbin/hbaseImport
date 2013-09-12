@@ -12,5 +12,6 @@ public class testMain {
 		String a = ConfigFactory.getString("fileBack.cycle");
 		System.out.println(a);
 		logg.error("sdafasdfdsaf");
+		logg.info("111111111111");
 	}
 }
